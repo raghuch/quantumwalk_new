@@ -1,0 +1,19 @@
+
+
+--------------------------------------README---------------------------------------
+
+
+The idea is to show the difference between the process of 'diffusion' of a classical particle and a 'quantum' particle on a 1D lattice. At any instant of time, the particle moves takes a step in any random direction (1D: left or right), hence 'random walk'. Classically, the random walk results in 'Brownian motion', in which the probability of finding the particle is a Gaussian centered at the origin. However, in the quantum version of random walk, the probability distribution is not Gaussian. In fact, the quantum version of the walk is faster than classical random walk.
+
+
+ The main function to be called is 'quantumwalk' which expects a Boolean argument. Calling '''quantumwalk(true)''' creates a plot showing how the probability changes with time, and this simulation is just done once. Calling '''quantumwalk(false)''' creates plots of the variance in position of the particle and also the probability distribution on the lattice. The plots are saved to the current folder as PDF.
+
+These plots are created by averaging over a number of simulations (number of iterations are denoted by the variable 'iter' in the function). The other parameters in the "Settings" structure are:
+
+1."iter", the number of iterations (100 to a few hundred are good for quick simulations, else memory usage gets too large).
+2. "num_steps", the number of timesteps ( order of 100 is a good number for quick results).
+3. "lower_lim" and "upper_lim"  to introduce a random noise parameter between 0 and 1 (noiseless case is when lower_lim == upper_lim). lower_lim < upper_lim for proper operation.
+4. initcondition which tells the initial condition of the particle (1 = spin-UP, -1 = spin-DOWN, and 0 = equal superposition of UP and DOWN).
+
+
+After setting these parameters, the code can be run in Julia by passing 'quantumwalk(true)' to just get a probability distribution as "probdistplot.pdf", or 'quantumwalk(false)' to get plots of variance and probability as "randomwalkplots.pdf" (both averaged over iterations). The plots are saved in PDF format in the current folder. 
